@@ -39,6 +39,5 @@ const Input = styled.input.attrs({
     margin-left: 2rem;
     border: none;
     outline: none;
-    background-color: var(--color-bg);
     color: var(--color-text);
 `;
