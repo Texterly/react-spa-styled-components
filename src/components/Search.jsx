@@ -16,7 +16,7 @@ function Search({search, setSearch}) {
 export default Search
 
 const InputContainer = styled.label`
-    background-color: var(--colors=ui-base);
+    background-color: var(--colors-ui-base);
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
@@ -40,4 +40,5 @@ const Input = styled.input.attrs({
     border: none;
     outline: none;
     color: var(--color-text);
+    background-color: var(--colors-ui-base);
 `;
