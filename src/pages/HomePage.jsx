@@ -10,7 +10,21 @@ import { ALL_COUNTRIES } from '../config';
 
 
 function HomePage({countries, setCountries}) {
-    // const [countries,setCountries] = useState([]);
+    const [filtredCountries,setfiltredCountries] = useState(countries);
+
+    const handleSearch = (search, region) => {
+      let data = [...countries];
+
+      if (region) {
+        data = data.filter(c => c.region.includes(region))
+      }
+
+      if (search) {
+        data = data.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
+      }
+
+      setfiltredCountries(data)
+    }
 
     const navigate = useNavigate();
 
@@ -21,10 +35,10 @@ function HomePage({countries, setCountries}) {
 
   return (
     <>
-        <Controls />
+        <Controls onSearch={handleSearch} />
         <List>
           {
-            countries.map((c) => {
+            filtredCountries.map((c) => {
               const countryInfo = {
                 img: c.flags.png,
                 name: c.name,
